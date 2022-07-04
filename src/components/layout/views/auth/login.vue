@@ -1,18 +1,17 @@
 <template>
-  <div class="flex bg-slate-400 w-full h-screen items-center justify-center">
-    <div class="w-[750px] bg-white grid grid-cols-2 -mt-48">
+  <div class="flex bg-slate-400 w-full h-screen items-center justify-center p-5">
+    <div class="w-[750px] bg-white grid md:grid-cols-2 -mt-48 h-[450px] rounded-md">
       <div class="p-5 flex items-center flex-col justify-center -translate-y-20">
         <h2 class="text-lg mb-5">
           登录
         </h2>
-        <l-input
-          class="account mt-5"
-          placeholder="请输入账号"
+        <l-form
+          :form-layout="formLayout"
+          :rules="rules"
+          :submit="submit"
         />
-        <l-input class="account mt-5" />
-        <l-button class="mt-5" />
       </div>
-      <div class="h-[450px] overflow-hidden">
+      <div class="hidden md:block overflow-hidden">
         <img
           src="@/assets/img/login.jpg"
           class="object-cover"
@@ -23,6 +22,35 @@
 </template>
 
 <script lang="ts" setup>
+import { IFormLayout } from '@/components/autocomps/types/LForm'
+
+const formLayout:IFormLayout[] = [
+  {
+    label: '账号',
+    name: 'account',
+    type: 'input',
+    placeholder: '请输入账号',
+    trigger: 'blur'
+  },
+  {
+    label: '密码',
+    name: 'password',
+    type: 'input',
+    placeholder: '请输入密码',
+    trigger: 'blur'
+  }
+]
+const rules = {
+  account: { required: true },
+  password: { required: true, min: 3 }
+}
+interface ISubmitValue {
+  account:string,
+  password:string
+}
+const submit = (value:ISubmitValue) => {
+  console.log(2222, value)
+}
 </script>
 
 <style scoped lang="scss">
