@@ -1,5 +1,5 @@
 import { RouteRecordRaw } from 'vue-router'
-import parseEnv from '@/util/parseEnv'
+import { env } from '@/util'
 
 // 获取类似的路由
 // {
@@ -10,7 +10,7 @@ import parseEnv from '@/util/parseEnv'
 // }
 const layoutRoutes:RouteRecordRaw[] = []
 
-export default parseEnv.VITE_APP_AUTOLOAD ? layoutRoutes : [] as RouteRecordRaw[]
+export default env.VITE_APP_AUTOLOAD ? layoutRoutes : [] as RouteRecordRaw[]
 
 // 获取父路由的基本信息
 const layout = import.meta.globEager('../components/layout/*.vue')

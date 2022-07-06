@@ -4,4 +4,5 @@ export interface IFormLayout{
     trigger:'blur'|'change'
     name:string,
     label:string,
+    value?:string
 }

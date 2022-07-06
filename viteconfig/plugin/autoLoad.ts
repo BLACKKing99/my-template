@@ -6,7 +6,7 @@ import {
 } from 'unplugin-vue-components/resolvers'
 export const autoLoadAPI = () => {
   return AutoImport({
-    imports: ['vue'],
+    imports: ['vue', 'vue-router'],
     dts: resolve(__dirname, '../../preset/auto-imports.d.ts')
   })
 }

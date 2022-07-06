@@ -23,11 +23,16 @@
 
 <script lang="ts" setup>
 import { IFormLayout } from '@/components/autocomps/types/LForm'
+import { login } from '@/api/module/user'
+import { localCatch } from '@/util'
+
+const router = useRouter()
 
 const formLayout:IFormLayout[] = [
   {
     label: '账号',
     name: 'account',
+    value: '11759',
     type: 'input',
     placeholder: '请输入账号',
     trigger: 'blur'
@@ -35,6 +40,7 @@ const formLayout:IFormLayout[] = [
   {
     label: '密码',
     name: 'password',
+    value: '123456',
     type: 'input',
     placeholder: '请输入密码',
     trigger: 'blur'
@@ -48,10 +54,18 @@ interface ISubmitValue {
   account:string,
   password:string
 }
-const submit = (value:ISubmitValue) => {
-  console.log(2222, value)
+const submit = async (value:ISubmitValue) => {
+  const res = await login(value)
+  localCatch.setItem('token', res.data.token, 5)
+  router.push({
+    path: '/'
+  })
 }
 </script>
-
+<script lang="ts">
+export default {
+  route: { name: 'login' }
+}
+</script>
 <style scoped lang="scss">
 </style>

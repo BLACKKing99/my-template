@@ -14,6 +14,7 @@
         :validate-on-input="item.trigger === 'change'?true:false"
         :validate-on-blur="item.trigger === 'blur'?true:false"
         :label="item.label"
+        :value="item.value"
       >
         <div
           class="field-item"
