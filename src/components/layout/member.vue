@@ -1,6 +1,7 @@
 <template>
   <div>
     222
+    <router-view />
   </div>
 </template>
 

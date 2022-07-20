@@ -3,6 +3,7 @@ import { ConfigEnv, loadEnv } from 'vite'
 import { alias } from './viteconfig/alias'
 import { parseEnv } from './viteconfig/util'
 import { server } from './viteconfig/server'
+import css from './viteconfig/css'
 import setupVitePlugin from './viteconfig/plugin/index'
 
 // https://vitejs.dev/config/
@@ -18,6 +19,7 @@ export default ({ command, mode }:ConfigEnv) => {
       alias
     },
     server,
-    plugins: setupVitePlugin(isBuild, env)
+    plugins: setupVitePlugin(isBuild, env),
+    css
   }
 }
