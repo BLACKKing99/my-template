@@ -21,7 +21,16 @@
             <admin-tab class="flex-1" />
           </div>
         </el-header>
-        <el-main>Main</el-main>
+        <el-main>
+          <router-view v-slot="{ Component }">
+            <transition name="el-fade-in">
+              <component :is="Component" />
+            </transition>
+          </router-view>
+          <!-- <transition name="el-fade-in">
+            <router-view />
+          </transition> -->
+        </el-main>
       </el-container>
     </el-container>
   </div>
@@ -34,5 +43,4 @@ import AdminNav from '../layoutComp/admin/AdminNav.vue'
 </script>
 
 <style scoped lang='scss'>
-
 </style>

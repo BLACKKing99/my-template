@@ -56,7 +56,7 @@ interface ISubmitValue {
 }
 const submit = async (value:ISubmitValue) => {
   const res = await login(value)
-  localCatch.setItem('token', res.data.token, 5)
+  localCatch.setItem('token', res.data.token, 36000)
   router.push({
     path: '/'
   })

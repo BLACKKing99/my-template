@@ -2,12 +2,14 @@ import { App } from 'vue'
 import { setupElementPlus } from './element'
 import { setupTailWindCss } from './tailwindcss'
 import { camelCase } from 'lodash'
+import { setupPinia } from './pinia'
 
 export const setupPlugins = (app:App) => {
   setupTailWindCss()
   // 注册elementplus组件库函数
   setupElementPlus(app)
   autoInstallComps(app)
+  setupPinia(app)
 }
 
 // 自动注册全局组件函数

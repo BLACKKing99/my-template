@@ -8,6 +8,7 @@ declare module '*.vue' {
 }
 interface IViteEnv {
   VITE_APP_AUTOLOAD:boolean
+  VITE_APP_API:string
 }
 
 interface ImportMetaEnv extends IViteEnv{}
