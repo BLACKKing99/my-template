@@ -9,6 +9,7 @@ export default {
     isMenu: true,
     menuTitle: '首页'
   },
+  redirect: '/admin/user',
   children: [
     {
       path: 'user',

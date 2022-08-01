@@ -2,6 +2,7 @@
   <el-menu
     :default-active="currentPath"
     class=" admin-menu"
+    unique-opened
     router
   >
     <template
@@ -26,7 +27,7 @@
             :index="`${menu.path}/${cMenu.path}`"
             v-for="(cMenu,cindex) in menu.children"
             :key="cindex"
-            @click="handleMenuClick(cMenu)"
+            @click="handleMenuClick(cMenu as RouteRecordNormalized)"
           >
             <div class="cmenu-icon">
               <i
@@ -52,7 +53,9 @@ const menuStore = useMenuStore()
 const router = useRouter()
 
 // 获取当前路由，刷新的时候菜单正确定位
-const currentPath = ref<string>(router.currentRoute.value.fullPath || menuStore.menus[0].path)
+const currentPath = computed(() => {
+  return router.currentRoute.value.fullPath || menuStore.menus[0].path
+})
 
 const handleMenuClick = (menu:RouteRecordNormalized) => {
 

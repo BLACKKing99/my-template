@@ -2,7 +2,7 @@ import { RouteRecordRaw } from 'vue-router'
 
 export default {
   path: '/member',
-  component: () => import('@/components/layout/member.vue'),
+  component: () => import('@/components/layout/admin.vue'),
   name: 'member',
   meta: {
     isAuth: true,

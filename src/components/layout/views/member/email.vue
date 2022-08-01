@@ -1,5 +1,7 @@
 <template>
-  email
+  <div>
+    email
+  </div>
 </template>
 
 <script lang='ts' setup>
